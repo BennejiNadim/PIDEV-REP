@@ -5,10 +5,85 @@
  */
 package Services;
 
+import Entities.Facture;
+import Utils.Connexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Wael
  */
 public class GestionFacture {
-    
+
+    private final Connection cnx;
+
+    public GestionFacture() {
+        this.cnx = Connexion.getInstance().getCnx();
+    }
+
+    public void ajouterFacture(Facture f) {
+        Statement st;
+        try {
+            st = cnx.createStatement();
+			
+			
+            String req = "insert into Facture values(" + f.getId() + ",'" + f.getDateFacturation() + "','" + f.getEtatFacture() + "','" + f.getMontant() + "','" + f.getClientLogin() + "','" + f.getSupplierId() + "')";
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionFacture.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void afficherFacture() {
+        try {
+            PreparedStatement pt = cnx.prepareStatement("select * from Facture");
+            ResultSet rs = pt.executeQuery();
+            while (rs.next()) {
+                if (rs.getInt(6) != 0) {
+                    System.out.println("Facture [ id: " + rs.getInt(1) + " dateFacturation: " + rs.getDate(2) + " etatFacture: " + rs.getString(3) + " Monton: " + rs.getDouble(4) + " Supplier: " + rs.getInt(6) + "]");
+                } else {
+                    System.out.println("Facture [ id: " + rs.getInt(1) + " dateFacturation: " + rs.getDate(2) + " etatFacture: " + rs.getString(3) + " Monton: " + rs.getDouble(4) + " Client: " + rs.getString(5) + "]");
+                }
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionFacture.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void modifierFacture(Facture f) {
+        PreparedStatement pt;
+        try {
+            pt = cnx.prepareStatement("update Facture set dateFacturation = ?, etatFacture = ?, montant = ?, ClientLogin = ?, SupplierId= ?  where id = ?");
+            pt.setDate(1, f.getDateFacturation());
+            pt.setString(2, f.getEtatFacture().toString());
+            pt.setDouble(3, f.getMontant());
+            pt.setString(4, f.getClientLogin());
+            pt.setInt(5, f.getSupplierId());
+            pt.setInt(6, f.getId());
+            pt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionFacture.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void supprimerFacture(Facture f) {
+        PreparedStatement pt;
+        try {
+            pt = cnx.prepareStatement("delete from Facture where id = ?");
+            pt.setInt(1, f.getId());
+            pt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionFacture.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
