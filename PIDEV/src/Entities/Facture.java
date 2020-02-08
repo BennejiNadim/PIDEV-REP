@@ -121,8 +121,4 @@ public class Facture {
         this.supplierId = supplierId;
     }
 
-    public static void setIdc(int idc) {
-        Facture.idc = idc;
-    }
-
 }
