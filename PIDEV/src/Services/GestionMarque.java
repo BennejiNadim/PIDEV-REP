@@ -27,7 +27,7 @@ public class GestionMarque {
         Statement st;
         try {
             st = con.createStatement();
-            String req = "insert into Categorie values(" + M.getId_marque() + ",'" + M.getNom_marque() + "')";
+            String req = "insert into Marque values(" + M.getId_marque() + ",'" + M.getNom_marque() + "')";
             st.executeUpdate(req);
         } catch (SQLException ex) {
             Logger.getLogger(GestionMarque.class.getName()).log(Level.SEVERE, null, ex);
