@@ -54,7 +54,7 @@ public class GestionTransaction {
 
     }
 
-    public void modifierTransaction(Transaction t) {
+    public void modifierTransaction(int id,Transaction t) {
         PreparedStatement pt;
         try {
             pt = cnx.prepareStatement("update Transaction set etatTransaction = ?, date = ?, montant = ?, description = ?   where id = ?");
@@ -62,7 +62,7 @@ public class GestionTransaction {
             pt.setDate(2, t.getDate());
             
             pt.setDouble(3, t.getMonton());
-            pt.setInt(5, t.getId());
+            pt.setInt(5, id);
             pt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(GestionTransaction.class.getName()).log(Level.SEVERE, null, ex);
@@ -70,11 +70,11 @@ public class GestionTransaction {
 
     }
 
-    public void supprimerTransaction(Transaction t) {
+    public void supprimerTransaction(int id) {
         PreparedStatement pt;
         try {
             pt = cnx.prepareStatement("delete from Transaction where id = ?");
-            pt.setInt(1, t.getId());
+            pt.setInt(1, id);
             pt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(GestionTransaction.class.getName()).log(Level.SEVERE, null, ex);

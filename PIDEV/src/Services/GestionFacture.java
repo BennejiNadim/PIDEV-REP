@@ -63,14 +63,14 @@ public class GestionFacture {
 
     }
 
-    public void modifierFacture(Facture f) {
+    public void modifierFacture(int id, Facture f) {
         PreparedStatement pt;
         try {
             pt = cnx.prepareStatement("update Facture set dateFacturation = ?, etatFacture = ?, montant = ?  where id = ?");
             pt.setDate(1, f.getDateFacturation());
             pt.setString(2, f.getEtatFacture().toString());
             pt.setDouble(3, f.getMontant());
-            pt.setInt(4, f.getId());
+            pt.setInt(4, id);
             pt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(GestionFacture.class.getName()).log(Level.SEVERE, null, ex);
@@ -78,11 +78,11 @@ public class GestionFacture {
 
     }
 
-    public void supprimerFacture(Facture f) {
+    public void supprimerFacture(int id) {
         PreparedStatement pt;
         try {
             pt = cnx.prepareStatement("delete from Facture where id = ?");
-            pt.setInt(1, f.getId());
+            pt.setInt(1, id);
             pt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(GestionFacture.class.getName()).log(Level.SEVERE, null, ex);
