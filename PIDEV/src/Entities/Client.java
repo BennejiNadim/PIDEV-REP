@@ -9,23 +9,84 @@ package Entities;
  *
  * @author Wael
  */
-public class Client extends User {
-    private String carteFidelite;
+public class Client {
+    public enum userRole{
+        client,
+        employe
+    }
+    protected String login;
+    protected String nom;
+    protected String prenom;
+    protected String mdp;
+    protected String email;
+    protected String tel;
+    protected userRole role;
 
-    public Client(String carteFidelite, String login, String nom, String prenom, String mdp, String email, String tel) {
-        super(login, nom, prenom, mdp, email, tel);
-        this.carteFidelite = carteFidelite;
+    public Client(String login, String nom, String prenom, String mdp, String email, String tel) {
+        this.login = login;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mdp = mdp;
+        this.email = email;
+        this.tel = tel;
+        role = userRole.client;
     }
 
     public Client() {
+        role = userRole.client;
     }
 
-    public String getCarteFidelite() {
-        return carteFidelite;
+    public userRole getRole() {
+        return role;
     }
 
-    public void setCarteFidelite(String carteFidelite) {
-        this.carteFidelite = carteFidelite;
+    
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTel() {
+        return tel;
     }
     
     

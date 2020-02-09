@@ -9,17 +9,19 @@ package Entities;
  *
  * @author Wael
  */
-public class Employe extends User {
+public class Employe extends Client {
     private String poste;
     private double salaire;
 
-    public Employe(String poste, double salaire, String login, String nom, String prenom, String mdp, String email, String tel) {
+    public Employe(String login, String nom, String prenom, String mdp, String email, String tel,String poste, double salaire) {
         super(login, nom, prenom, mdp, email, tel);
+        role = userRole.employe;
         this.poste = poste;
         this.salaire = salaire;
     }
 
     public Employe() {
+        role = userRole.employe;
     }
 
     public String getPoste() {
