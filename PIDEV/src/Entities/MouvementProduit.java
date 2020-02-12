@@ -21,19 +21,21 @@ public class MouvementProduit {
     }
 
     private int id_mouvement_Produit;
+    private int id_produit;
     private int id_facture;
     private src_dest source;
     private src_dest destination;
     private int quantité;
-    private Date date;
+    private java.sql.Date date;
 
-    public MouvementProduit(int id_mouvement_Produit, int id_facture, src_dest source, src_dest destination, int quantité, Date date) {
+    public MouvementProduit(int id_mouvement_Produit, int id_facture, src_dest source, src_dest destination, int quantité, java.sql.Date date,int id_produit) {
         this.id_mouvement_Produit = id_mouvement_Produit;
         this.id_facture = id_facture;
         this.source = source;
         this.destination = destination;
         this.quantité = quantité;
         this.date = date;
+        this.id_produit=id_produit;
     }
     
 
@@ -49,7 +51,7 @@ public class MouvementProduit {
         return quantité;
     }
 
-    public Date getDate() {
+    public java.sql.Date getDate() {
         return date;
     }
 
@@ -65,7 +67,7 @@ public class MouvementProduit {
         this.quantité = quantité;
     }
 
-    public void setDate(Date date) {
+    public void setDate(java.sql.Date date) {
         this.date = date;
     }
 
@@ -75,6 +77,10 @@ public class MouvementProduit {
 
     public int getId_facture() {
         return id_facture;
+    }
+
+    public int getId_produit() {
+        return id_produit;
     }
     
 }
