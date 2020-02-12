@@ -25,13 +25,14 @@ public class GestionMouvementProduit {
 
     /**
      * ****************AJOUT****************
+     * @param M
      */
     public void ajouterMouvement(MouvementProduit M) {
         Statement st;
         try {
             st = con.createStatement();
             String req = "insert into MouvementProduit values(" + M.getId_mouvement_Produit() + "," + M.getId_facture()
-                    + "," + M.getSource() + "," + M.getDestination() + "," + M.getQuantité() + "," + M.getDate() + ")";
+                    + ",'" + M.getSource().toString() + "','" + M.getDestination().toString() + "'," + M.getQuantité() + ",'" + M.getDate() + "',"+M.getId_produit()+")";
             st.executeUpdate(req);
         } catch (SQLException ex) {
             Logger.getLogger(GestionMouvementProduit.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,7 +49,7 @@ public class GestionMouvementProduit {
             pt = con.prepareStatement("select * from MouvementProduit");
             ResultSet rs = pt.executeQuery();
             while (rs.next()) {
-                System.out.println("Mouvement [id_mouvement : " + rs.getInt(1) + " , id_facture :" + rs.getString(2) + " , source : " + rs.getString(3) + " , destination : " + rs.getString(4) + " , quantité: " + rs.getInt(5) + " , Date " + rs.getDate(6) + "]");
+                System.out.println("Mouvement [id_mouvement : " + rs.getInt(1) +",id_produit : "+rs.getInt(7)+" , id_facture :" + rs.getString(2) + " , source : " + rs.getString(3) + " , destination : " + rs.getString(4) + " , quantité: " + rs.getInt(5) + " , Date " + rs.getDate(6) + "]");
             }
         } catch (SQLException ex) {
             Logger.getLogger(GestionMouvementProduit.class.getName()).log(Level.SEVERE, null, ex);
