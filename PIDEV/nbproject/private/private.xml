@@ -3,17 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/Services/GestionFacture.java</file>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/Entities/Produit.java</file>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/pidev/PIDEV.java</file>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/Entities/Employe.java</file>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/Entities/Transaction.java</file>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/Entities/User.java</file>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/Entities/Facture.java</file>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/Services/GestionProduit.java</file>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/Entities/Client.java</file>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/Utils/Connexion.java</file>
-            <file>file:/C:/Users/Wael/Desktop/PIDEV-REP-master/PIDEV/src/Services/GestionTransaction.java</file>
+            <file>file:/C:/Users/user/Desktop/PIDEV-REP-master/PIDEV/src/Services/GestionAvis.java</file>
+            <file>file:/C:/Users/user/Desktop/PIDEV-REP-master/PIDEV/src/Entities/Reclamation.java</file>
+            <file>file:/C:/Users/user/Desktop/PIDEV-REP-master/PIDEV/src/Entities/Avis.java</file>
+            <file>file:/C:/Users/user/Desktop/PIDEV-REP-master/PIDEV/src/Services/GestionReclamation.java</file>
+            <file>file:/C:/Users/user/Desktop/PIDEV-REP-master/PIDEV/src/pidev/PIDEV.java</file>
         </group>
     </open-files>
 </project-private>

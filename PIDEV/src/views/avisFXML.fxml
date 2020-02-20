@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.AvisFXMLController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <BorderPane layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="979.0">
+               <top>
+                  <TableView id="table_users" fx:id="table_reclamation" onMouseClicked="#getSelection" prefHeight="502.0" prefWidth="890.0" BorderPane.alignment="CENTER">
+                     <columns>
+                        <TableColumn fx:id="ref_id" prefWidth="158.0" text="ID_Avis" />
+                        <TableColumn fx:id="choix" prefWidth="237.0" text="Choix" />
+                        <TableColumn fx:id="commentaire" minWidth="0.0" prefWidth="205.0" text="Commentaire" />
+                        <TableColumn fx:id="action" minWidth="0.0" prefWidth="6.0" />
+                     </columns>
+                  </TableView>
+               </top>
+               <left>
+                  <Button fx:id="add_product_btn" mnemonicParsing="false" onAction="#add_avis" prefHeight="31.0" prefWidth="144.0" text="Add Avis" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <Button fx:id="remove" mnemonicParsing="false" onAction="#remove_avis" prefHeight="31.0" prefWidth="157.0" text="Remove" BorderPane.alignment="CENTER" />
+               </right>
+               <center>
+                  <Button fx:id="update" mnemonicParsing="false" onAction="#update_avis" prefHeight="31.0" prefWidth="175.0" text="Update" BorderPane.alignment="CENTER" />
+               </center>
+               <bottom>
+                  <TextField fx:id="filter" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

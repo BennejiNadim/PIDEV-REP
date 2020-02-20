@@ -36,7 +36,7 @@ public class Reclamation {
                 pt = cnx.prepareStatement("select MAX(ID_reclamation) from reclamation");
                 ResultSet rs = pt.executeQuery();
                 if (rs.next()) {
-                    System.out.println("hihi");
+                    
                     idc=1+rs.getInt(1);
                     
                 }
@@ -48,6 +48,13 @@ public class Reclamation {
         this.id=idc++;
         this.date = new Date(System.currentTimeMillis());
 
+    }
+
+    public Reclamation(int id, etat_r etat, Date date, String client_login) {
+        this.id = id;
+        this.etat = etat;
+        this.date = date;
+        this.client_login = client_login;
     }
 
     public Reclamation(etat_r etat, String client_login) {

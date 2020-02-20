@@ -20,7 +20,9 @@ import java.util.logging.Logger;
  * @author user
  */
 public class Avis {
-      public enum choix_a{
+
+   
+    public enum choix_a{
         satisfait,
         non_satisfait,
         content
@@ -29,7 +31,11 @@ public class Avis {
     private int id;
     private choix_a choix;
     private String commentaire;
-
+     public Avis(int id_avis, choix_a avis, String commentaire) {
+        this.id=id_avis;
+        this.choix = avis;
+        this.commentaire=commentaire;
+    }
     public Avis() {
         Connection cnx = Connexion.getInstance().getCnx();
         if (Avis.idc == 1) {
@@ -38,7 +44,7 @@ public class Avis {
                 pt = cnx.prepareStatement("select MAX(ID_avis) from avis");
                 ResultSet rs = pt.executeQuery();
                 if (rs.next()) {
-                    System.out.println("hihi");
+                    
                     idc=1+rs.getInt(1);
                     
                 }
@@ -83,6 +89,11 @@ public class Avis {
 
     public String getCommentaire() {
         return commentaire;
+    }
+
+    @Override
+    public String toString() {
+        return "Avis{" + "id=" + id + ", choix=" + choix + ", commentaire=" + commentaire + '}';
     }
     
     }

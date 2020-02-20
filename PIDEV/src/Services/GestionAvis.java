@@ -30,9 +30,10 @@ private final Connection cnx;
     public void ajouterAvis(Avis a) {
         Statement st;
         try {
+            System.out.print(a);
             st = cnx.createStatement();
 
-            String req = "insert into avis values(" + a.getId() + ",'" + a.getChoix()+ "','" + a.getCommentaire()+ "')";
+            String req = "insert into avis values(" + a.getId() + ",'" + a.getChoix().name()+ "','" + a.getCommentaire()+ "')";
             st.executeUpdate(req);
         } catch (SQLException ex) {
             Logger.getLogger(GestionAvis.class.getName()).log(Level.SEVERE, null, ex);
@@ -55,11 +56,11 @@ private final Connection cnx;
 
     }
 
-    public void modifierReclamation(int id,Avis a) {
+    public void modifierAvis(int id,Avis a) {
         PreparedStatement pt;
         try {
             pt = cnx.prepareStatement("update avis set choix = ?, commentaire = ?   where ID_avis = ?");
-            pt.setString(1, a.getChoix().toString());
+            pt.setString(1, a.getChoix().name());
             pt.setString(2, a.getCommentaire());
             pt.setInt(3, id);
             pt.executeUpdate();
